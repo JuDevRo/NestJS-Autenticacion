@@ -36,6 +36,14 @@ export class OrdersService {
     return this.orderModel.findByIdAndDelete(id);
   }
 
+  ordersByCustomer(customerId: number) {
+    return this.orderModel.find({
+      where: {
+        customer: customerId,
+      },
+    });
+  }
+
   async removeProduct(id: string, productId: string) { // 👈 
     const order = await this.orderModel.findById(id);
     order.products.pull(productId);

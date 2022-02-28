@@ -5,6 +5,7 @@ import { CustomerController } from './controllers/customers.controller';
 import { CustomersService } from './services/customers.service';
 import { Customer, CustomerSchema } from './entities/customer.entity';
 import { UsersController } from './controllers/users.controller';
+import { ProfileController } from './controllers/profile.controller';
 import { UsersService } from './services/users.service';
 import { User, UserSchema } from './entities/user.entity';
 import { OrdersController } from './controllers/orders.controller';
@@ -31,7 +32,8 @@ import { ProductsModule } from './../products/products.module';
       },
     ]),
   ],
-  controllers: [CustomerController, UsersController, OrdersController],
+  controllers: [CustomerController, UsersController, OrdersController, ProfileController],
   providers: [CustomersService, UsersService, OrdersService],
+  exports: [UsersService],
 })
 export class UsersModule {}
